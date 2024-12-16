@@ -91,7 +91,7 @@ const Duration = () => {
 
       <div>
         <button onClick={handleSelect} className="bg-blue-500 text-white px-4 py-2 rounded">
-          Next
+          Next1
         </button>
       </div>
     </div>
