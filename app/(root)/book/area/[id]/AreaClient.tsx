@@ -1,6 +1,4 @@
-// app/(root)/book/area/[id]/AreaClient.tsx
-
-"use client"; // This marks the component as client-side
+"use client";
 
 import React from "react";
 import { useRouter } from "next/navigation";
