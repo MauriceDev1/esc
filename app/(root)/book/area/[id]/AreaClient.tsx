@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Locations from "@/data/locations"
 
 interface AreaClientProps {
   id: number;
@@ -18,8 +19,6 @@ export default function AreaClient({ id }: AreaClientProps) {
     // Use dynamic import
     (async () => {
       try {
-        const module = await import("@/data/locations");
-        const Locations = module.default;
         const selectedArea = Locations.find((location) => location.id === Number(id));
         setArea(selectedArea || null);
       } catch (error) {
