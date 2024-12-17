@@ -1,7 +1,6 @@
 import React from "react";
 import Locations from "@/data/locations";
 import AreaClient from "./AreaClient"; // Import the client component
-import { Metadata } from "next"; // If you use Metadata (for SEO etc.)
 
 // Static params generation for Next.js (no promise wrapper)
 export function generateStaticParams() {
