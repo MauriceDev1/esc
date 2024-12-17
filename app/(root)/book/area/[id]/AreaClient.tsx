@@ -15,10 +15,16 @@ export default function AreaClient({ id }: AreaClientProps) {
   } | null>(null);
 
   useEffect(() => {
-    // Fetch area data from static locations
-    const Locations = require("@/data/locations").default; // Dynamically import
-    const selectedArea = Locations.find((location: { id: number; }) => location.id === Number(id));
-    setArea(selectedArea || null);
+    // Use dynamic import to fetch Locations
+    import("@/data/locations")
+      .then((module) => {
+        const Locations = module.default;
+        const selectedArea = Locations.find((location) => location.id === Number(id));
+        setArea(selectedArea || null);
+      })
+      .catch((error) => {
+        console.error("Error loading locations:", error);
+      });
   }, [id]);
 
   const handleSelect = (locationName: string) => {
