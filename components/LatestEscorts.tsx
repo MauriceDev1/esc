@@ -39,12 +39,8 @@ const LatestEscorts: React.FC = () => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    nextArrow: <CustomNextArrow onClick={function (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
-        throw new Error("Function not implemented.");
-    } } />,
-    prevArrow: <CustomPrevArrow onClick={function (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
-        throw new Error("Function not implemented.");
-    } } />,
+    nextArrow: <CustomNextArrow onClick={() => { /* Implement functionality here */ }} />,
+    prevArrow: <CustomPrevArrow onClick={() => { /* Implement functionality here */ }} />,
     responsive: [
       {
         breakpoint: 1100,

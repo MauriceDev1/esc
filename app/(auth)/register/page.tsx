@@ -32,7 +32,7 @@ export default function Register() {
 
     // Validation
     let isValid = true;
-    let validationErrors = {
+    const validationErrors = {
       username: "",
       email: "",
       password: "",

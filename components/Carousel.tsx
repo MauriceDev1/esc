@@ -39,12 +39,8 @@ const Carousel: React.FC = () => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    nextArrow: <CustomNextArrow onClick={function (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
-        throw new Error("Function not implemented.");
-    } } />,
-    prevArrow: <CustomPrevArrow onClick={function (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
-        throw new Error("Function not implemented.");
-    } } />,
+    nextArrow: <CustomNextArrow onClick={() => { /* Implement functionality here */ }} />,
+    prevArrow: <CustomPrevArrow onClick={() => { /* Implement functionality here */ }} />,
     responsive: [
       {
         breakpoint: 1100,
@@ -75,18 +71,16 @@ const Carousel: React.FC = () => {
 
   return (
     <div className="relative w-full overflow-hidden my-5">
-        <h2 className="p-2 text-white">
-            Current Cities
-        </h2>
+      <h2 className="p-2 text-white">Current Cities</h2>
       <ReactSlick {...settings}>
         {Locations.map(l => (
           <div className="p-2" key={l.id}>
-              <Link href={`/book/area/${l.id}`}>
-                <div className="h-56 bg-red-500 flex items-center justify-center text-white text-lg font-bold">
-                  {l.name}
-                </div>
-              </Link>
-            </div>
+            <Link href={`/book/area/${l.id}`}>
+              <div className="h-56 bg-red-500 flex items-center justify-center text-white text-lg font-bold">
+                {l.name}
+              </div>
+            </Link>
+          </div>
         ))}
       </ReactSlick>
     </div>
