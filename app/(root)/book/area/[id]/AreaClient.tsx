@@ -1,22 +1,22 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+// AreaClient.tsx
+import React from "react";
 import { useRouter } from "next/navigation";
 import Locations from "@/data/locations";
 
 interface AreaClientProps {
-  id: number;
+  id: number; // Ensure the id is passed here
 }
 
 export default function AreaClient({ id }: AreaClientProps) {
   const router = useRouter();
-  const [area, setArea] = useState<{
+  const [area, setArea] = React.useState<{
     name: string;
     location: { id: number | undefined; name: string }[];
   } | null>(null);
 
-  useEffect(() => {
-    // Convert the 'id' to a number to match the type in Locations
+  React.useEffect(() => {
     const selectedArea = Locations.find((location) => location.id === id);
     setArea(selectedArea || null);
   }, [id]);
