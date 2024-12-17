@@ -8,11 +8,11 @@ interface AreaProps {
   };
 }
 
-// Static params generation for Next.js
+// Static params generation for Next.js (synchronously returning params)
 export function generateStaticParams() {
   // Generate paths for static generation and ensure each `id` is a string
   return Locations.map((location) => ({
-    params: { id: location.id.toString() }, // Wrap the `id` in `params`
+    params: { id: location.id.toString() }, // Convert id to string and wrap it inside `params`
   }));
 }
 
