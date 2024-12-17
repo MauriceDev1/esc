@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import Locations from "@/data/locations"
+import Locations from "@/data/locations";
 
 interface AreaClientProps {
   id: number;
@@ -16,15 +16,11 @@ export default function AreaClient({ id }: AreaClientProps) {
   } | null>(null);
 
   useEffect(() => {
-    // Use dynamic import
-    (async () => {
-      try {
-        const selectedArea = Locations.find((location) => location.id === Number(id));
-        setArea(selectedArea || null);
-      } catch (error) {
-        console.error("Error loading locations:", error);
-      }
-    })();
+    // Convert the 'id' to a number to match the type in Locations
+    const numericId = Number(id);
+
+    const selectedArea = Locations.find((location) => location.id === numericId);
+    setArea(selectedArea || null);
   }, [id]);
 
   const handleSelect = (locationName: string) => {
