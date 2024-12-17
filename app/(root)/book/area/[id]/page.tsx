@@ -4,15 +4,15 @@ import AreaClient from "./AreaClient"; // Import the client component
 
 interface AreaProps {
   params: {
-    id: string; // It will be a string as Next.js routes pass dynamic parameters as strings
+    id: string; // The dynamic route param is a string
   };
 }
 
 // Static params generation for Next.js
-export async function generateStaticParams() {
-  // Generate paths for static generation
+export function generateStaticParams() {
+  // Generate paths for static generation and ensure each `id` is a string
   return Locations.map((location) => ({
-    id: location.id.toString(), // Convert to string since params are strings
+    params: { id: location.id.toString() }, // Wrap the `id` in `params`
   }));
 }
 
