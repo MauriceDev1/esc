@@ -31,7 +31,7 @@ const City: React.FC = () => {
         Please select the city where you would like to arrange a meeting with an escort.
         </h2>
       </div>
-      <div className="w-full flex flex-col px-20">
+      <div className="w-full flex flex-col px-3 md:px-10">
         {Locations.map((location: Location, index: number) => (
           <button
             onClick={() => handleSelect(location)}

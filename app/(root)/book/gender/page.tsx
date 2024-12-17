@@ -28,11 +28,11 @@ const Gender = () => {
   };
 
   return (
-    <div className="w-full flex gap-5">
+    <div className="w-full flex gap-3 md:gap-5">
       {Genders.map((g, i) => (
         <button
           key={i}
-          className="w-1/3 border py-5 rounded hover:border-2 hover:border-pink-500 hover:shadow hover:shadow-pink-400 hover:text-pink-500 hover:font-semibold"
+          className="w-full md:w-1/3 border py-5 rounded hover:border-2 hover:border-pink-500 hover:shadow hover:shadow-pink-400 hover:text-pink-500 hover:font-semibold"
           onClick={() => handleSelect(g.name)}
         >
           {g.name}

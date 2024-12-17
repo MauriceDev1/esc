@@ -19,11 +19,6 @@ const Links = [
         name: 'Duration',
         path: '/book/duration'
     },
-    {
-        id:5,
-        name: 'Available',
-        path: '/book/available'
-    },
 ]
 
 export default Links;
