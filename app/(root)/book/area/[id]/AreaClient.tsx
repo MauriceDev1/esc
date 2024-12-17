@@ -17,9 +17,7 @@ export default function AreaClient({ id }: AreaClientProps) {
 
   useEffect(() => {
     // Convert the 'id' to a number to match the type in Locations
-    const numericId = Number(id);
-
-    const selectedArea = Locations.find((location) => location.id === numericId);
+    const selectedArea = Locations.find((location) => location.id === id);
     setArea(selectedArea || null);
   }, [id]);
 
