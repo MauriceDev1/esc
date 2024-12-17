@@ -1,17 +1,18 @@
-// AreaPage.tsx
 import React from "react";
 import Locations from "@/data/locations";
-import AreaClient from "./AreaClient"; // Import client component
+import AreaClient from "./AreaClient"; // Import the client component
 
 interface AreaProps {
   params: {
-    id: string; // Update this to be a string (it will be passed as string in dynamic routes)
-}}
+    id: string; // It will be a string as Next.js routes pass dynamic parameters as strings
+  };
+}
 
+// Static params generation for Next.js
 export async function generateStaticParams() {
-  // Generate paths with string IDs, as Next.js will pass them as strings
+  // Generate paths for static generation
   return Locations.map((location) => ({
-    id: location.id.toString(), // Ensure id is passed as a string
+    id: location.id.toString(), // Convert to string since params are strings
   }));
 }
 

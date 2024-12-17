@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import Locations from "@/data/locations";
 
 interface AreaClientProps {
-  id: number; // Ensure the id is passed here
+  id: number;
 }
 
 export default function AreaClient({ id }: AreaClientProps) {
