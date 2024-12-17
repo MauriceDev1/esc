@@ -3,13 +3,14 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link';
+import { IoLogInOutline } from "react-icons/io5";
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
-  { name: 'Blog', href: '/blog', current: false },
-  { name: 'Premium', href: '/premium', current: false },
-  { name: "I'm an Escort", href: '/im-an-escort', current: false },
-  { name: "I'm an Agency", href: '/im-an-agency', current: false },
+  { name: 'Female', href: '/female', current: false },
+  { name: 'Male', href: '/male', current: false },
+  { name: "Transgender", href: '/transgender', current: false },
+  { name: "How We Work", href: '/how-we-work', current: false },
 ]
 
 function classNames(...classes: (string | undefined | null)[]): string {
@@ -19,7 +20,7 @@ function classNames(...classes: (string | undefined | null)[]): string {
 export default function Navbar() {
   const isAuth = false;
   return (
-    <Disclosure as="nav" className="bg-black sticky top-0">
+    <Disclosure as="nav" className="bg-black sticky top-0 z-50">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -60,8 +61,8 @@ export default function Navbar() {
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             {!isAuth
                 ?
-                    <Link href="/login" className='text-white text-sm font-medium'>
-                        Login
+                    <Link href="/login" className='text-white text-sm gap-2 font-medium flex items-center'>
+                        Login <IoLogInOutline  className='text-xl'/>
                     </Link>    
                 :
                     <>

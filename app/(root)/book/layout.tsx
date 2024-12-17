@@ -34,7 +34,7 @@ export default function RootLayout({
 
   return (
     <div className="w-full h-[70vh]">
-      <div className="w-full flex justify-between bg-black rounded-lg shadow-l my-10 bg-opacity-90">
+      <div className="w-full flex justify-between bg-gray-800 rounded-lg shadow-l mt-10 bg-opacity-90">
         {Links.map((l) => {
           // Conditionally update link text based on the selectedCityData object
           let displayText = l.name;
@@ -62,7 +62,7 @@ export default function RootLayout({
           );
         })}
       </div>
-      <div className="bg-white bg-opacity-30 backdrop-blur-lg min-h-[70vh] rounded-lg shadow-lg">
+      <div className="bg-white bg-opacity-90 backdrop-blur-lg min-h-[70vh] rounded-lg shadow-lg my-5">
         {children}
       </div>
     </div>

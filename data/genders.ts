@@ -1,15 +1,18 @@
 const Genders = [
     {
         id: 1,
-        name: "Female"
+        name: "Female",
+        link: "/female"
     },
     {
         id: 2,
-        name: "Male"
+        name: "Male",
+        link: "/male"
     },
     {
         id: 3,
-        name: "Transgender"
+        name: "Transgender",
+        link: "/transgender"
     },
 ];
 

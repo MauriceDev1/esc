@@ -27,16 +27,16 @@ const City: React.FC = () => {
   return (
     <div>
       <div>
-        <h2>
-          Please select your city you would like to meet an escort?
+        <h2 className='text-center py-5 text-xl text-pink-500'>
+        Please select the city where you would like to arrange a meeting with an escort.
         </h2>
       </div>
-      <div className="w-full flex flex-col">
+      <div className="w-full flex flex-col px-20">
         {Locations.map((location: Location, index: number) => (
           <button
             onClick={() => handleSelect(location)}
             key={location.id}
-            className={`py-5 border-t hover:bg-pink-200 ${
+            className={`py-5 border-t hover:border-2 hover:shadow hover:shadow-pink-300 hover:border-pink-500 rounded-xl hover:text-pink-500 hover:font-semibold ${
               index === Locations.length - 1 ? 'border-b' : ''
             }`}
           >

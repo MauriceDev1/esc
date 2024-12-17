@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Genders from "@/data/genders"
+import Link from "next/link";
 
 const ReactSlick = dynamic(() => import("react-slick"), { ssr: false });
 
@@ -74,15 +75,17 @@ const TypeOfEscorts: React.FC = () => {
 
   return (
     <div className="relative w-full overflow-hidden my-5">
-        <h2 className="p-2">
-            Current Cities
+        <h2 className="p-2 text-white">
+            Genders
         </h2>
       <ReactSlick {...settings}>
         {Genders.map(g => (
           <div className="p-2" key={g.id}>
-            <div className="h-72 bg-red-500 flex items-center justify-center text-white text-lg font-bold">
-              {g.name}
-            </div>
+            <Link href={g.link}>
+                <div className="h-72 bg-red-500 flex items-center justify-center text-white text-lg font-bold">
+                    {g.name}
+                </div>
+            </Link>
           </div>
         ))}
       </ReactSlick>
