@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import Locations from '@/data/locations';
-import { useRouter } from 'next/navigation'; // Correct import for Next.js 13+
+import React, { useEffect, useState } from "react";
+import Locations from "@/data/locations";
+import { useRouter } from "next/navigation"; // Correct import for Next.js 13+
 
 interface AreaProps {
   params: {
@@ -10,7 +10,7 @@ interface AreaProps {
   };
 }
 
-const Area = ({ params }: AreaProps) => {
+export default function Area({ params }: AreaProps) {
   const router = useRouter();
   const [area, setArea] = useState<{ name: string; location: { id: number | undefined; name: string }[] } | null>(null);
 
@@ -19,12 +19,12 @@ const Area = ({ params }: AreaProps) => {
       const selectedArea = Locations.find((location) => location.id === Number(params.id));
       setArea(selectedArea || null);
     }
-  }, [params]); // Run this effect when params change
+  }, [params]);
 
   const handleSelect = (locationName: string) => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       // Get existing selectedCity data
-      const existingData = localStorage.getItem('selectedCity');
+      const existingData = localStorage.getItem("selectedCity");
       let updatedData;
 
       if (existingData) {
@@ -37,7 +37,7 @@ const Area = ({ params }: AreaProps) => {
       }
 
       // Store the updated data in localStorage
-      localStorage.setItem('selectedCity', JSON.stringify(updatedData));
+      localStorage.setItem("selectedCity", JSON.stringify(updatedData));
 
       // Redirect to the booking page
       router.push(`/book/gender`);
@@ -57,7 +57,7 @@ const Area = ({ params }: AreaProps) => {
           <button
             key={loc.id}
             onClick={() => handleSelect(loc.name)}
-            className={`py-5 border-t hover:bg-pink-200 ${maxlen === index + 1 && 'border-b'}`}
+            className={`py-5 border-t hover:bg-pink-200 ${maxlen === index + 1 && "border-b"}`}
           >
             {loc.name}
           </button>
@@ -65,6 +65,4 @@ const Area = ({ params }: AreaProps) => {
       </ul>
     </div>
   );
-};
-
-export default Area;
+}
