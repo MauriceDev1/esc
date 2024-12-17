@@ -4,12 +4,19 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Links from "@/data/links";
 
+interface CityData {
+  area?: string;
+  gender?: string;
+  callType?: string;
+  time?: string;
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [selectedCityData, setSelectedCityData] = useState<any>(null);
+  const [selectedCityData, setSelectedCityData] = useState<CityData | null>(null);
 
   useEffect(() => {
     // Function to update the state from localStorage
