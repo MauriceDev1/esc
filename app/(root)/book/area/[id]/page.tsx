@@ -1,12 +1,7 @@
 import React from "react";
 import Locations from "@/data/locations";
 import AreaClient from "./AreaClient"; // Import the client component
-
-interface AreaProps {
-  params: {
-    id: string; // The dynamic route param is a string
-  };
-}
+import { Metadata } from "next"; // If you use Metadata (for SEO etc.)
 
 // Static params generation for Next.js (no promise wrapper)
 export function generateStaticParams() {
@@ -16,7 +11,8 @@ export function generateStaticParams() {
   }));
 }
 
-export default function AreaPage({ params }: AreaProps) {
+// Page component that accepts `params` from Next.js
+export default function AreaPage({ params }: { params: { id: string } }) {
   // Convert the string id to a number before passing it to AreaClient
   const id = parseInt(params.id, 10);
 
