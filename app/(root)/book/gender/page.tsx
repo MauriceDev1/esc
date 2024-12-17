@@ -28,7 +28,7 @@ const Gender = () => {
   };
 
   return (
-    <div className="w-full flex flex-wrap gap-3 md:gap-5">
+    <div className="w-full flex flex-wrap gap-3 sm:gap-0 gap-5">
       {Genders.map((g, i) => (
         <button
           key={i}
