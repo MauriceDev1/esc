@@ -1,25 +1,22 @@
 import React from "react";
 import Locations from "@/data/locations";
-import AreaClient from "./AreaClient"; // Import the client component
+import AreaClient from "./AreaClient";
 
 interface AreaProps {
-  params: {
-    id: string; // The dynamic route param is a string
-  };
+  params: Promise<{ id: string }>; // params is a Promise
 }
 
-// Static params generation for Next.js (no promise wrapper)
+// Page component
+export default async function AreaPage({ params }: AreaProps) {
+  const { id } = await params; // Unwrap the params promise
+  const numericId = parseInt(id, 10); // Convert to number if needed
+
+  return <AreaClient id={numericId} />;
+}
+
+// Static params generation
 export function generateStaticParams() {
-  // Generate paths for static generation and ensure each `id` is a string
   return Locations.map((location) => ({
-    params: { id: location.id.toString() }, // Convert id to string and wrap it inside `params`
+    id: location.id.toString(), // Ensure ID is a string for dynamic routes
   }));
-}
-
-// Page component that accepts `params` from Next.js
-export default function AreaPage({ params }: AreaProps) {
-  // Convert the string id to a number before passing it to AreaClient
-  const id = parseInt(params.id, 10);
-
-  return <AreaClient id={id} />;
 }
