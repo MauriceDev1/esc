@@ -4,7 +4,7 @@ import AreaClient from "./AreaClient"; // Import client component
 
 interface AreaProps {
   params: {
-    id: string;
+    id: number;
   };
 }
 

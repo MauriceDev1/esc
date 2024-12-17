@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 interface AreaClientProps {
-  id: string;
+  id: number;
 }
 
 export default function AreaClient({ id }: AreaClientProps) {
