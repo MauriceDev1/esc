@@ -55,7 +55,7 @@ const Duration = () => {
   return (
     <div className="flex flex-col items-center justify-center gap-6">
       {/* Slider */}
-      <div className="relative w-80 h-10 bg-gray-300 rounded-full">
+      <div className="relative w-[70%] h-10 bg-gray-300 rounded-full">
         <div
           className="absolute top-0 left-0 h-full bg-pink-500 rounded-l-full"
           style={{ width: `${(hours / 24) * 100}%` }}

@@ -7,6 +7,9 @@ import { Input } from "@/components/ui/input";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from "@/components/ui/select";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/firebase";
+import { FirebaseError } from "firebase/app";
 
 export default function Register() {
   const [username, setUsername] = useState("");
@@ -64,17 +67,36 @@ export default function Register() {
     }
 
     try {
-      // Placeholder for Convex API integration
-      // await api("registerUser", { username, email, password, role });
+      // Firebase Authentication: Register user
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 
-      // After successful registration, redirect based on role
+      // Add additional user details to the database if needed
+      const user = userCredential.user;
+
+      console.log("User registered:", user);
+
+      // Redirect based on role
       if (role === "client") {
-        router.push("/login"); // Redirect to login for clients
+        router.push("/login");
       } else if (role === "escort") {
-        router.push("/register-profile"); // Redirect to profile registration for escorts
+        router.push("/register-profile");
       }
-    } catch (error) {
-      console.error("Registration failed:", error);
+    } catch (error: unknown) { // Use `unknown` instead of `any`
+      if (error instanceof FirebaseError) { // Check if the error is a FirebaseError
+        console.error("Firebase registration error:", error);
+
+        // Handle Firebase errors
+        if (error.code === "auth/email-already-in-use") {
+          setErrors((prevErrors) => ({ ...prevErrors, email: "Email is already in use." }));
+        } else if (error.code === "auth/weak-password") {
+          setErrors((prevErrors) => ({ ...prevErrors, password: "Password is too weak." }));
+        } else {
+          setErrors((prevErrors) => ({ ...prevErrors, email: "Registration failed. Please try again." }));
+        }
+      } else {
+        console.error("Unexpected error:", error);
+        setErrors((prevErrors) => ({ ...prevErrors, email: "An unexpected error occurred." }));
+      }
     }
   };
 

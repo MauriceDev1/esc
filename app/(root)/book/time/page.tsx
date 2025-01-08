@@ -70,21 +70,21 @@ const Time = () => {
 
     const handleSelect = () => {
         const formattedTime = `${hour.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`; // Format time as "HH:MM"
-    
+
         // Retrieve existing data from localStorage
         const existingData = localStorage.getItem('selectedCity'); // Adjust the key if needed
         if (existingData) {
             const parsedData = JSON.parse(existingData);
-    
+
             // Add time to the existing object
             const updatedData = {
                 ...parsedData,
                 time: formattedTime, // Add the formatted time as a single string
             };
-    
+
             // Save the updated object back to localStorage
             localStorage.setItem('selectedCity', JSON.stringify(updatedData));
-    
+
             console.log('Updated data:', updatedData);
             router.push(`/book/duration`);
         } else {
@@ -94,7 +94,7 @@ const Time = () => {
 
     return (
         <div className='w-full flex flex-col gap-10'>
-            <h1 className='mx-auto text-xl'>Today</h1>     
+            <h1 className='mx-auto text-xl'>Today</h1>
             <div className='text-6xl font-bold text-gray-700 m-auto'>
                 {hour.toString().padStart(2, '0')}:{minutes.toString().padStart(2, '0')}
             </div>
@@ -108,7 +108,7 @@ const Time = () => {
                 <button className='border px-2' onClick={() => decreaseMinutes()}>
                     -
                 </button>
-            </div>   
+            </div>
             <div className="m-auto flex w-36 justify-between">
                 <button className='border px-2' onClick={() => increaseHour()}>
                     +
@@ -119,7 +119,7 @@ const Time = () => {
                 <button className='border px-2' onClick={() => decreaseHour()}>
                     -
                 </button>
-            </div>   
+            </div>
             <div className="m-auto flex w-36 justify-between">
                 <button className='border px-2' onClick={() => increaseFourHours()}>
                     +
@@ -130,8 +130,8 @@ const Time = () => {
                 <button className='border px-2' onClick={() => decreaseFourHours()}>
                     -
                 </button>
-            </div>   
-            <div className='flex m-auto'>        
+            </div>
+            <div className='flex m-auto'>
                 <button onClick={handleSelect} className="bg-blue-500 text-white px-4 py-2 rounded">
                 Next
                 </button>
