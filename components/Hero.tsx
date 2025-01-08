@@ -4,10 +4,10 @@ import Link from 'next/link'
 
 const Hero = () => {
   return (
-    <div className='w-full flex h-96 bg-custom-image'>
+    <div className='hidden w-full md:flex h-96 bg-gray-200'>
         <Link href="/book/city" className='m-auto'>
-            <Button className='rounded-sm text-md px-10 py-3 h-12 rounded-full'>
-                Book An Escort
+            <Button className='sm-rounded text-md px-10 py-3 h-12 rounded-full'>
+                Book An Worker
             </Button>
         </Link>
     </div>

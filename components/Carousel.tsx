@@ -70,7 +70,7 @@ const Carousel: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full overflow-hidden my-5">
+    <div className="relative w-full overflow-hidden mb-5">
       <h2 className="p-2 text-white">Current Cities</h2>
       <ReactSlick {...settings}>
         {Locations.map(l => (

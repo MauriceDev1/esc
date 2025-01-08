@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Links from "@/data/links";
+import { Button } from "@/components/ui/button";
 
 interface CityData {
   area?: string;
@@ -69,8 +70,12 @@ export default function RootLayout({
           );
         })}
       </div>
-      <div className="bg-white bg-opacity-90 backdrop-blur-lg min-h-[70vh] rounded-lg shadow-lg my-5">
+      <div className="min-h-[60vh] max-h-[60vh] bg-white bg-opacity-90 backdrop-blur-lg overflow-y-scroll rounded-lg shadow-lg my-5">
         {children}
+      </div>
+      <div className="w-full flex gap-3">
+        <Button className="bg-red-500 w-1/2">Next</Button>
+        <Button className="bg-red-500 w-1/2">Next</Button>
       </div>
     </div>
   );
